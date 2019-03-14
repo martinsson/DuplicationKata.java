@@ -8,7 +8,7 @@ public class Lesson31 extends Song {
         Map<Integer, Singer> singerTypes = new HashMap<>() {{
             put(1, new BirthDaySinger());
             put(2, new YaySinger());
-            put(3, new BoringSinger());
+            put(3, new BaseSinger());
         }};
         NoSinger defaultValue = new NoSinger();
         Singer singer = singerTypes.getOrDefault(style, defaultValue);
@@ -26,7 +26,7 @@ public class Lesson31 extends Song {
         void doSing(String[] names);
     }
 
-    private class BirthDaySinger extends BoringSinger {
+    private class BirthDaySinger extends BaseSinger {
         public boolean isRightPerson(String name) {
             return name.startsWith("L");
         }
@@ -37,7 +37,7 @@ public class Lesson31 extends Song {
 
     }
 
-    private class YaySinger extends BoringSinger {
+    private class YaySinger extends BaseSinger {
 
         public boolean isRightPerson(String name) {
             return name.contains("a");
@@ -50,7 +50,7 @@ public class Lesson31 extends Song {
 
     }
 
-    private class BoringSinger implements Singer {
+    private class BaseSinger implements Singer {
 
         public void doSing(String[] names) {
             for (String name : names) {
@@ -58,7 +58,7 @@ public class Lesson31 extends Song {
                     sing(this.singSpecial(name));
 
                 } else {
-                    sing(this.singBoring(name));
+                    sing("Hello " + name + ", it's nice to meet you.");
                 }
             }
         }
@@ -71,9 +71,6 @@ public class Lesson31 extends Song {
             return null;
         }
 
-        public String singBoring(String name) {
-            return "Hello " + name + ", it's nice to meet you.";
-        }
     }
 
     private class NoSinger implements Singer {
