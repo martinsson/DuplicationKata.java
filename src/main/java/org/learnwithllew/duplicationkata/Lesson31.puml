@@ -1,0 +1,24 @@
+@startuml
+
+interface Singer {
+    +doSing(names[])
+}
+
+class BaseSinger implements Singer {
+    +doSing(names[])
+    #isRghtPerson(name)
+    #singSpecial(name)
+}
+class NoSinger implements Singer {
+    +doSing(names[])
+}
+
+class YaySinger extends BaseSinger {
+}
+class BirthdaySinger extends BaseSinger {
+}
+
+
+
+
+@enduml
