@@ -24,13 +24,12 @@ public class Lesson31 extends Song {
 
         public void doSing(String[] names) {
             for (String name : names) {
-                if (this.isRightPerson(name)) {
-                    sing(this.singSpecial(name));
-
-                } else {
-                    sing("Hello " + name + ", it's nice to meet you.");
-                }
+                sing(getLineToSing(name));
             }
+        }
+
+        private String getLineToSing(String name) {
+            return this.isRightPerson(name) ? this.singSpecial(name) : "Hello " + name + ", it's nice to meet you.";
         }
 
         public boolean isRightPerson(String name) {
