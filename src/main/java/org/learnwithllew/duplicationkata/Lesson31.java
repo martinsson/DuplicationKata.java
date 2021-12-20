@@ -11,19 +11,36 @@ public class Lesson31 extends Song {
             put(3, new BaseSinger());
         }};
         NoSinger defaultValue = new NoSinger();
+
         Singer singer = singerTypes.getOrDefault(style, defaultValue);
         singer.doSing(names);
     }
 
-
-    private boolean isRightPerson(String name) {
-        return name.contains("a");
+    interface Singer {
+        void doSing(String[] names);
     }
 
-    interface Singer {
+    private class BaseSinger implements Singer {
 
+        public void doSing(String[] names) {
+            for (String name : names) {
+                if (this.isRightPerson(name)) {
+                    sing(this.singSpecial(name));
 
-        void doSing(String[] names);
+                } else {
+                    sing("Hello " + name + ", it's nice to meet you.");
+                }
+            }
+        }
+
+        public boolean isRightPerson(String name) {
+            return false;
+        }
+
+        public String singSpecial(String name) {
+            return null;
+        }
+
     }
 
     private class BirthDaySinger extends BaseSinger {
@@ -46,29 +63,6 @@ public class Lesson31 extends Song {
         @Override
         public String singSpecial(String name) {
             return name.toUpperCase() + "! Yay " + name + "!";
-        }
-
-    }
-
-    private class BaseSinger implements Singer {
-
-        public void doSing(String[] names) {
-            for (String name : names) {
-                if (this.isRightPerson(name)) {
-                    sing(this.singSpecial(name));
-
-                } else {
-                    sing("Hello " + name + ", it's nice to meet you.");
-                }
-            }
-        }
-
-        public boolean isRightPerson(String name) {
-            return false;
-        }
-
-        public String singSpecial(String name) {
-            return null;
         }
 
     }
