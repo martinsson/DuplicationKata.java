@@ -6,7 +6,7 @@ interface Singer {
 
 class BaseSinger implements Singer {
     +doSing(names[])
-    #isRghtPerson(name)
+    #isSpecialPerson(name)
     #singSpecial(name)
 }
 class NoSinger implements Singer {

@@ -29,10 +29,10 @@ public class Lesson31 extends Song {
         }
 
         private String getLineToSing(String name) {
-            return this.isRightPerson(name) ? this.singSpecial(name) : "Hello " + name + ", it's nice to meet you.";
+            return this.isSpecialPerson(name) ? this.singSpecial(name) : "Hello " + name + ", it's nice to meet you.";
         }
 
-        public boolean isRightPerson(String name) {
+        public boolean isSpecialPerson(String name) {
             return false;
         }
 
@@ -43,7 +43,7 @@ public class Lesson31 extends Song {
     }
 
     private class BirthDaySinger extends BaseSinger {
-        public boolean isRightPerson(String name) {
+        public boolean isSpecialPerson(String name) {
             return name.startsWith("L");
         }
 
@@ -55,7 +55,7 @@ public class Lesson31 extends Song {
 
     private class YaySinger extends BaseSinger {
 
-        public boolean isRightPerson(String name) {
+        public boolean isSpecialPerson(String name) {
             return name.contains("a");
         }
 

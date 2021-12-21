@@ -3,9 +3,9 @@ package org.learnwithllew.duplicationkata;
 import java.util.function.Function;
 
 public class Lesson3HigherOrderFunctions extends Song {
+
     public void singCheers() {
         repeat(0, this::addTwo, "Who do we appreciate?");
-
         repeat(13, this::getNextPrime, "These are the primes, that we find fine!");
     }
 
