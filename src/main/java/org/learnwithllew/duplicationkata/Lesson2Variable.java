@@ -2,15 +2,21 @@ package org.learnwithllew.duplicationkata;
 
 public class Lesson2Variable extends Song
 {
+
+  private int nbBottles;
+
   public void singBottlesOfBeer()
   {
-    sing("100 bottles of beer on the wall");
-    sing("100 bottles of beer");
+    nbBottles = 100;
+    singCouplet();
+    singCouplet();
+  }
+
+  private void singCouplet() {
+    sing(nbBottles + " bottles of beer on the wall");
+    sing(nbBottles + " bottles of beer");
     sing("Take one down, pass it around");
-    sing("99 bottles of beer on the wall");
-    sing("99 bottles of beer on the wall");
-    sing("99 bottles of beer");
-    sing("Take one down, pass it around");
-    sing("98 bottles of beer on the wall");
+    nbBottles--;
+    sing(nbBottles + " bottles of beer on the wall");
   }
 }
